@@ -3,21 +3,21 @@
 import { useState } from 'react'
 
 export default function SlotMachine() {
-  const [coins, setCoins] = useState(100)
-  const [isSpinning, setIsSpinning] = useState(false)
-  const [lastWin, setLastWin] = useState(0)
-  const [totalSpins, setTotalSpins] = useState(0)
+  const [coins, setCoins] = useState<number>(100)
+  const [isSpinning, setIsSpinning] = useState<boolean>(false)
+  const [lastWin, setLastWin] = useState<number>(0)
+  const [totalSpins, setTotalSpins] = useState<number>(0)
   
-  const symbols = ['🍒', '🍋', '🍊', '🍇', '⭐', '💎']
-  const [reels, setReels] = useState(['🍒', '🍋', '🍊'])
+  const symbols = ['🍒', '🍋', '🍊', '🍇', '⭐', '💎'] as const
+  const [reels, setReels] = useState<string[]>(['🍒', '🍋', '🍊'])
   
   const BET_AMOUNT = 10
 
-  const getRandomSymbol = () => symbols[Math.floor(Math.random() * symbols.length)]
+  const getRandomSymbol = (): string => symbols[Math.floor(Math.random() * symbols.length)]
 
-  const checkWin = (newReels) => {
+  const checkWin = (newReels: string[]): number => {
     if (newReels[0] === newReels[1] && newReels[1] === newReels[2]) {
-      const winMultipliers = {
+      const winMultipliers: { [key: string]: number } = {
         '🍒': 3, '🍋': 4, '🍊': 5, '🍇': 6, '⭐': 15, '💎': 25
       }
       return winMultipliers[newReels[0]] * BET_AMOUNT
@@ -29,7 +29,7 @@ export default function SlotMachine() {
     return 0
   }
 
-  const spin = () => {
+  const spin = (): void => {
     if (isSpinning || coins < BET_AMOUNT) return
     
     setIsSpinning(true)
@@ -39,10 +39,10 @@ export default function SlotMachine() {
     
     // スピンアニメーション（2秒間）
     setTimeout(() => {
-      const newReels = [getRandomSymbol(), getRandomSymbol(), getRandomSymbol()]
+      const newReels: string[] = [getRandomSymbol(), getRandomSymbol(), getRandomSymbol()]
       setReels(newReels)
       
-      const winAmount = checkWin(newReels)
+      const winAmount: number = checkWin(newReels)
       if (winAmount > 0) {
         setLastWin(winAmount)
         setCoins(prev => prev + winAmount)
@@ -52,7 +52,7 @@ export default function SlotMachine() {
     }, 2000)
   }
 
-  const resetGame = () => {
+  const resetGame = (): void => {
     setCoins(100)
     setLastWin(0)
     setTotalSpins(0)
