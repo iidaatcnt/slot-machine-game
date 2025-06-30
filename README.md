@@ -1,16 +1,8 @@
 # 🎰 Slot Machine Game
 
-A fun and interactive slot machine game built with React, Next.js, and Tailwind CSS.
+ブラウザで動作するシンプルで楽しいスロットマシンゲーム
 
-## ✨ Features
-
-- 🎮 Interactive slot machine gameplay
-- 💰 Coin management system
-- 🎯 Multiple winning combinations
-- 🎨 Beautiful responsive design
-- 🔄 Game reset functionality
-
-## 🚀 Getting Started
+## 🚀 Quick Start
 
 \`\`\`bash
 npm install
@@ -19,14 +11,21 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) to play!
 
-## 🎰 How to Play
+## 📋 詳細仕様
 
-1. Click **SPIN!** to bet 10 coins
-2. Match 3 symbols to win big!
-3. 2 matching symbols return your bet
-4. Click **Reset** when you run out of coins
+完全な仕様書は [SPECIFICATION.md](./SPECIFICATION.md) をご覧ください。
 
-## 🏆 Winning Combinations
+## 🎮 Features
 
-- 🍒🍒🍒 ×3 | 🍋🍋🍋 ×4 | 🍊🍊🍊 ×5
-- 🍇🍇🍇 ×6 | ⭐⭐⭐ ×15 | 💎💎💎 ×25
+- 🎰 リアルなスロットマシン体験
+- 💰 コイン管理システム  
+- 🎯 多彩な勝利パターン
+- 📱 レスポンシブデザイン
+- 🔄 リセット機能
+
+## 🛠️ Tech Stack
+
+- React 19 / Next.js 15.3.4
+- TypeScript
+- Tailwind CSS
+- Vercel (Deployment)
